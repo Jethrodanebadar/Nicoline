@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang = 'en'>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.9/css/boxicons.min.css">
+        <title>Nicoline Studio</title>
+        <link rel="stylesheet" href="style.css">
+        <script>
+            function goToServices() {
+              var servicesSection = document.getElementById("divider");
+              servicesSection.scrollIntoView({ behavior: "smooth" });
+            }
+
+            function goToAbout() {
+              var servicesSection = document.getElementById("divider1");
+              servicesSection.scrollIntoView({ behavior: "smooth" });
+            }
+
+            function goToContacts() {
+              var servicesSection = document.getElementById("divider2");
+              servicesSection.scrollIntoView({ behavior: "smooth" });
+            }
+
+            function goToTop() {
+                var introHeading = document.getElementById('intro-heading');
+                servicesSection.scrollIntoView({ behavior: "smooth" });
+            }
+
+            document.addEventListener("DOMContentLoaded", function() {
+           
+            var navbar = document.querySelector(".head");
+
+            
+            var lastScrollTop = 0;
+            var isCursorMoving = false;
+            var timeout;
+
+            // Function to handle cursor movement
+            function handleCursorMovement() {
+                // Set the cursor moving flag to true
+                isCursorMoving = true;
+
+                // Show the navbar
+                navbar.classList.remove("navbar-hidden");
+
+                // Reset the cursor moving flag and start the timeout after 2 seconds of inactivity
+                clearTimeout(timeout);
+                timeout = setTimeout(function() {
+                isCursorMoving = false;
+                // Hide the navbar if the user is not scrolling or if the scroll position has changed significantly
+                var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                if (scrollTop === lastScrollTop || Math.abs(scrollTop - lastScrollTop) > 5) {
+                    navbar.classList.add("navbar-hidden");
+                }
+                }, 1000);
+            }
+
+            // Event listener for cursor movement
+            document.addEventListener("mousemove", handleCursorMovement);
+
+            // Event listener for scrolling
+            window.addEventListener("scroll", function() {
+                // Hide the navbar if the cursor is not moving
+                if (!isCursorMoving) {
+                var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                if (scrollTop > lastScrollTop) {
+                    // Scrolling down
+                    navbar.classList.add("navbar-hidden");
+                } else {
+                    // Scrolling up
+                    navbar.classList.remove("navbar-hidden");
+                }
+                lastScrollTop = scrollTop;
+                }
+            });
+            });
+
+            const icons = document.querySelectorAll('.contact-info a');
+        icons.forEach(icon => {
+            icon.addEventListener('mouseover', () => {
+                icon.classList.add('shake');
+            });
+            icon.addEventListener('mouseout', () => {
+                icon.classList.remove('shake');
+            });
+        });
+
+          </script>
+    </head>
+    <body>
+        <header class="head"> 
+            <a href="#" class = 'name' onclick="goToTop()">Nicoline Studio</a>
+            <nav class="navbar">
+                <a href="javascript:void(0);" onclick="goToServices()">Services</a>
+                <a href="javascript:void(0); "onclick="goToAbout()">About</a>
+                <a href="javascript:void(0);" onclick="goToContacts()">Contacts</a>
+                  
+            </nav>         
+        </header>
+        
+        <section class="home">
+            <div class="intro">
+                <h2 class="bouncing-heading">Creative Photography</h2>
+                <h1>Through the lens of my camera, I capture moments that transcend time, telling stories with light and shadow.</h1>
+                
+            </div>
+            <div >
+                <img class="kuya" src="kuyanics.png" alt="Kuya's image">
+            </div>
+            
+        </section>
+
+        <div class="divider" id="divider"></div>
+
+        <section id="services">
+            <h1>Services</h1>
+            <div class="services-container">
+                <div class="service">
+                    <a href="https://www.facebook.com/nicolinestudio/posts/pfbid0TCQ6SxAvVt9r1vcjFTs1zpdQuHpiMhhktGddr5wY3BqhQKvkEPtjBD5oTF66hgxTl?__cft__[0]=AZVmRuuToukFiW2anArHcCsvvUVQAoMSoZ5DWPoqqH1HNkBQF2o1Nl-PAQPjnmR1lSXReVE1DYtseuq_FrAAvD8Bp8MdqwTw9Lgw1xN6sQv9W45xoIIB_m_tJ_uF_rXyWHJk4JXulvUoUiqf6-MQiDkKFm57KCWpOfe2frp-6isrY82b2KeSJl3Jy3Z0EvG52PA&__tn__=%2CO%2CP-R" target="_blank">
+                        <img src="ate bump.jpg" alt="Service 1">   
+                    </a>
+                    <div class="caption">
+                        Capturing the Radiant Journey: Celebrating the Blossoming Beauty of Motherhood
+                    </div>
+                </div>
+                <div class="service">
+                    <a href="https://www.facebook.com/nicolinestudio/posts/pfbid02KZsurX5yKKehNBxLdpEdwcPJyi36XtvB6PwqbpjzC1D3VovvbdHrbxbzV2spJpFPl?__cft__[0]=AZXtoViBPQ9T_44bAAfUWG5J6xu5WBSuiEcS8ACq9N7f7dktdsM8oSgPvs0TcXRFX2d3WqiDVn5ZH30gjjJ1FjVGjP7pKgJ24sf2BUyRoE-zfGdMteBE6wweW6SLnO7XRXKqcFrBLTQ_NJJzCTsIXZ-vaPzKg44G8ss3HY5XXm_NBSWNNN3kXq_b6asKpOgrN6A&__tn__=%2CO%2CP-R" target="_blank">
+                        <img src="clinic.jpg" alt="Service 2">
+                        
+                    </a>
+                    <div class="caption">
+                        Roots of Renewal: Nature's Touch Brings Comfort, Where Serenity Flourishes Amidst Clean Horizons. A Symbolic Tapestry of Healing and Resilience
+                    </div>
+                </div>
+                <div class="service">
+                    <a href="https://www.facebook.com/nicolinestudio/posts/pfbid0nesEy7r9LsyLounfuFQP8EgSb6vCNK7wq9VZJpZxkjrLUR5nqgJRt4wQqfg5Y96nl?__cft__[0]=AZUU44ugQz6BBENhrZU2YriNvxMRinYQAYW8Gf7kMGr6Q8b61s-GqvyfdqnVl1jmd_yXdswxpsDK0MgX8AhZ67RKASSz3BCQNcTRfzQSnZsAeMj75h2bY8m0kB4DIx7yDno8ngdA0xds2ohe2L_DTIPdyxNJRxXwwqwOhCbeeztr76FMRa38jOGuudH9ahpvp4Q&__tn__=%2CO%2CP-R" target="_blank">
+                        <img src="tita.jpg" alt="Service 3">
+                        
+                    </a>
+                    <div class="caption">
+                        A Captivating Blend of Grace and Warmth, Embracing Elegance within the Walls of Splendor
+                    </div>
+                </div>
+                <div class="service">
+                    <a href="https://www.facebook.com/nicolinestudio/posts/pfbid02h69fK1hxaeAyy8u472EBtVVPztLrLTWoaWdQ84W86e9ezQdDmkTKC3NApLpsNKi8l?__cft__[0]=AZXEtRQJLbMCPjlBH5SBj5JJnw4NC85-ZMoVsp_m_Mz3grwJvCaEY3I0bcXZjqyPN7ZNf9N-hzGT6vGA7PxOtErRSk46MLF4Xs92Sgauhx8O0azD_fMYeklthwLck6HNoR_keJsUhLBhvNmpNAKIIkNk_qqlOK31SXgTxwnga-Nrhk-_Cg2y9fE8o2_Yy-CtuRI&__tn__=%2CO%2CP-R" target="_blank">
+                        <img src="mangga.jpg" alt="Service 4">
+                        
+                    </a>
+                    <div class="caption">
+                        Adorned with the jewels of nature's treasure, she embodies the ripe essence of abundance and the allure of mango's golden symphony
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider1" id="divider1"></div>
+
+        <section id="About">
+            <h1>About</h1>
+            <div class="profile-container">
+              <img class="profile" src="profile.jpg" alt="profile">
+              
+            </div>
+            <div class="message">
+                <p >Welcome to my online profile! I'm Nicolas B. del Rosario, a passionate photographer who believes in the power of capturing moments and transforming them into captivating visual stories. With an eye for detail and a love for light, composition, and subject, I aim to create timeless images that evoke emotions and leave a lasting impact. From majestic landscapes to intimate portraits, my diverse portfolio weaves together the elements of storytelling to create images that inspire and captivate. Join me on a visual journey as we explore the world one frame at a time.
+                </p>
+            </div>
+          </section>
+
+        <div class="divider2" id="divider2"></div>
+            
+        <section id="contact">
+            <h1>Contacts</h1>
+            <div class="contact-infos">
+                <div class="contact-info">
+                    <a href="https://www.facebook.com/nicolinestudio" target="_blank"><i class='bx bxl-facebook'></i></a>
+                </div>
+                <div class="contact-info">
+                    <a href="https://www.tiktok.com/@nicolinestudio?is_from_webapp=1&sender_device=pc" target="_blank"><i class='bx bxl-tiktok'></i></a>
+                </div>
+                <div class="contact-info">
+                    <a href="https://www.youtube.com/@nicolinestudio" target="_blank"><i class='bx bxl-youtube'></i></a>
+                </div>
+            </div>
+        </section>
+        
+    </body>
+</html>
